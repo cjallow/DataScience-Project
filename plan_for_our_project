@@ -1,8 +1,14 @@
-what we need to confirm gentrification using taxi dataset and rental price dataset
+what we are goint to do to confirm gentrification using taxi dataset and rental price dataset
 
 # our hypothesis on gentrification: 
-	If there were gentrification, the newly moved in people will use taxi rather than bus or subway. 
 
+	If there were gentrification, the newly moved in people who caused gentriflcation will use taxi rather than bus or subway. 
+	
+# our goal:
+
+	We are trying to catch existance of the genterification in taxi data set, then 
+	we will confirm the gentrificaiton using the rental price data set. 
+	
 # preprocessing data
 
 1. specify the region that we are interested in. 
