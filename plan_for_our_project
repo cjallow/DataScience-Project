@@ -1,0 +1,15 @@
+what we are goint to do to confirm gentrification using taxi dataset and rental price dataset
+
+# our hypothesis on gentrification: 
+	If there were gentrification, the newly moved in people will use taxi rather than bus or subway. 
+
+# preprocessing data
+
+1. specify the region that we are interested in. 
+
+2. For the region 
+	- find out rental price changes for several years
+	- filter the taxi data so that it includes only rows whose drop off or pick up locations are in the interested region
+	- 
+  
+  "Feel free to edit it. Up to here is what I understood about our project. -Eunjung- "
