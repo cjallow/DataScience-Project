@@ -18,7 +18,7 @@ source activate **_EnvName_**
 
 Deactivate when you are done like this:
 ```bash
-source deactivate **_EnvName_**
+source deactivate
 ```
 
 ##Updates
@@ -49,3 +49,8 @@ your notebooks with your initials:
 
 
 http://svds.com/jupyter-notebook-best-practices-for-data-science/
+
+
+For more conda stuff, here's a conda vs pip vs virtualenv table:
+
+http://conda.pydata.org/docs/_downloads/conda-pip-virtualenv-translator.html
