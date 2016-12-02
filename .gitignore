@@ -32,12 +32,6 @@ src
 .idea/
 Read the Docs
 config.rst
-<<<<<<< HEAD
-*.csv
-*.xls
-*.xlsx
-=======
 *.[cC][sS][vV]
 *.[xX][lL][sS]
 *.[xX][lL][sS][xX]
->>>>>>> 6bc42c300e0e306b614cf71a08dad3964904b456
