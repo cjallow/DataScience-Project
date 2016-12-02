@@ -21,6 +21,30 @@ Deactivate when you are done like this:
 source deactivate
 ```
 
+##Contributing
+
+##Work on your own branch 
+Merge conflicts are ugly, and it's really bad when somebody "accidentally"
+pushes binaries, temps, and other large files. If it only happened in your
+branch, revert to a clean state so nobody has to merge dirty project files to
+master. Create a new branch and switch to it with one command:
+```bash
+git checkout -b **_BranchName_**
+```
+
+You'll now be working on your own branch until you checkout to a different
+branch. Try not to checkout another branch unless you got corresponding developer's OK.
+
+##master 
+Someone who knows what they are doing should take care of merging to master.
+Create a pull request to have your work merged in. In the end, your merged
+work is what counts, so make sure your branch is clean.
+
+By keeping master clean like this and working on separate branches, we never
+have to receive a message from a developer saying something like "Don't pull!
+My notebook is corrupted!" It sounds like a ridiculous statement, but it
+happens. It really shouldn't.
+
 ##Updates
 
 ###Getting them
