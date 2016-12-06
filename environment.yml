@@ -1,0 +1,7 @@
+name: DataScience-Project
+dependencies:
+- anaconda=4.1.1=np111py35_0
+- plotly=1.12.9=py35_0
+- pip:
+  - zipcode==2.0.0
+  - "git+https://github.com/CommerceDataService/census-wrapper.git"
