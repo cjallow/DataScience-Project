@@ -1,6 +1,6 @@
 % Gentrification in NYC
 % 
-% Jean Pena and friends
+% Jean Pena, Eunjung, Hasna Benzekri, Cherno
 
 # Background
 
@@ -12,27 +12,101 @@ result, rent has been rising:
 
 # Exploration
 
-## Questions we wanted to answer
+##
+
+### Questions we wanted to answer
 
 1. Is gentrification the cause of rent hikes in Crown Heights, Brooklyn?
 1. Are new people moving in below the median income?
 1. How much do they contribute to the taxi industry?
 
+# Scraping zip codes
 
+##
+
+![Brooklyn Map](theMap.png)
+
+##
+
+</figure>
+<img src="scraping.gif" width="800px" />
+<figcaption>And we scraped the zips</figcaption>
+</figure>
+
+# Income
+
+##
+
+### Crown Heights Income
+
+<video autoplay controls loop width="800" height="640" >
+<source src="crownHeights.mp4" type="video/mp4" >
+</video>
+
+##
+
+### Boerum Hill Income
+
+<video autoplay controls loop width="800" height="640" >
+<source src="boreumHill.mp4" type="video/mp4" >
+</video>
+
+##
+
+### Caroll Gardens Income
+
+<video autoplay controls loop width="800" height="640" >
+<source src="carollGardens.mp4" type="video/mp4" >
+</video>
+
+# Rent
+
+##
+
+###
+
+![2011](2011.png)
+
+##
+
+###
+
+![2012](2012.png)
+
+##
+
+###
+
+![2013](2013.png)
+
+##
+
+###
+
+![2014](2014.png)
+
+# Taxi
+
+##
+
+![](shrugs.png)
 
 # What does this mean for you?
 
-## You better make that money or get up outta here
+##
+
+### You better make that money or get up outta here
 
 1. Gentrification might have a small impact on rent hikes, but rent is going
    up regardless of the situation
 1. So put your degree to use and get that money
 1. Otherwise, you'll still have to deal with rent hikes
+1. Get a house and stop paying for rent!
 
 # Questions?
 
 ## References
 
-* [Census API](http://link.springer.com/chapter/10.1007/3-540-44647-8_1)
-* [HUD](http://dl.acm.org/citation.cfm?id=2591825)
+* [Census API](http://www.census.gov/developers/à)
+* [HUD User Fair Market Rents ](https://www.huduser.gov/portal/datasets/fmr.html)
 * [NYC Open Data](https://data.cityofnewyork.us)
