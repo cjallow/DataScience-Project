@@ -1,228 +1,38 @@
-% Program Obfuscation
+% Gentrification in NYC
 % 
-% 
+% Jean Pena and friends
 
 # Background
 
-## What is it?
+## What's happening?
 
-The idea is to make a compiler of sorts which converts program source into a
-"virtual black box" for the functionality.  How to formalize?  Well, output of
-compiler must do the following:
+Over the past few years, NYC has be getting gentrified. Previously low income
+neighborhoods have been seeing higher income residents moving in, and as a
+result, rent has been rising:
 
-1. compute the same function
-1. consume roughly the same resources (space and time)
-1. not reveal *anything* that isn't learnable from the i/o behavior
+# Exploration
 
-The last one is a little tricky to get right...
+## Questions we wanted to answer
 
-## Notation
+1. Is gentrification the cause of rent hikes in Crown Heights, Brooklyn?
+1. Are new people moving in below the median income?
+1. How much do they contribute to the taxi industry?
 
-* $O$ -- the obfuscator (compiler)
-* $P$ -- programs / Turing machines to be obfuscated
 
-## Formalizing security
 
-For any adversary $A$, there exists a simulator $S$ such that **for all** TMs
-$P$, it holds that
+# What does this mean for you?
 
-$|\mathrm{Pr}[A(O(P)) = 1] - \mathrm{Pr}[S^{P}(1^{|P|}) = 1]| < \mathrm{negl}(|P|)$
+## You better make that money or get up outta here
 
-(Careful with the quantifiers!!!)
-
-# Intution + related notions
-
-## Homomorphic encryption
-
-* Allows a party **without** the decryption key to perform computations on
-  encrypted data
-* Note: this yields *encrypted results*.
-
-## Example
-
-* Plaintext == numbers
-* $E$ == encryption function
-* There exist systems so that for any plaintext messages $x,y$, it holds that
-  $E(x) + E(y) = E(x+y)$
-
------------
-
-This already has many applications:
-
-* outsourcing / cloud computing
-* *verifiable* delegation of computations
-* private information retrieval
-
------------
-
-Note the following:
-
-1. By using a universal circuit or TM, the function being computed can also be
-   hidden.
-1. Such schemes can always be made to be public key, and in this case, a user
-   without the key can encrypt the inputs.
-
-So HE seems to get us part of the way to obfuscation, but the *output is
-encrypted*.
-
------------
-
-Interestingly, having *output in the clear* makes quite a difference in the
-range of applications...
-
------------
-
-### Would-be applications
-
-Obfuscation would arguably be the most powerful cryptographic primitive known.
-It would imply:
-
-* Software protection; watermarking
-* Homomorphic encryption
-* Functional encryption
-* Many conversions from symmetric key primitives to public key
-
-
-# Bad news
-
-## Negative results
-
-In 2001, researchers formulated the above "virtual black box" definition for
-obfuscation, and proved that it could never be achieved.  The argument is
-actually quite simple.
-
-## Argument (sketch)
-
-Consider the following two functions (Haskell syntax)
-
-~~~~~~~~~~~{.haskell}
-d a b  = (\f -> f(a) == b)
-
-c a = b
-c _ = 0
-~~~~~~~~~~~~~~~~~~
-
-----------
-
-### Sketch (cont'd)
-
-~~~~~~~~~~~{.haskell}
-d a b  = (\f -> f(a) == b)
-
-c a = b
-c _ = 0
-~~~~~~~~~~~~~~~~~~
-
-Given only oracle access to `(d a b)` and to `c`, both are indistinguishable
-from the zero function.  However, it is quite easy to see if they are "paired"
-if we are given access to **any** source code for the two:  just compute
-`d(c)`.
-
-----------
-
-### Sketch (cont'd)
-
-Hence we define an adversary $adv$ as follows:
-
-~~~~~~~~~~~{.haskell}
--- run first program (f) on the second (g)
-adv f g = (0 == f g)
-~~~~~~~~~~~~~~~~~~
-
-Now since the obfuscator must work *for all programs*, we arrive at a
-contradiction.  The adversary does very different things on obfuscations of
-$(d(a,b), c)$ vs $(z,z)$ (zero function), but with only oracle access, no
-simulator can tell them apart.
-
----------
-
-### Sketch (cont'd)
-
-To make the definition work for single TM's, just make one function out of two
-using a selection bit, and have the adversary decompose the result.  (So, you
-are running the program on some part of itself as input.)
-
-
-# Maybe good news: iO
-
------------
-
-### Alternative to VBB?
-
-In light of the impossibility result, the same authors put forth the notion of
-"indistinguishability obfuscation" (iO).
-
------------
-
-### Idea behind iO
-
-* Obfuscator output for *any* program computing $F$ "looks the same" as *any
-  other*
-* Accept that *some* information may be leaked by a program, but try to
-  minimize it
-* Sort of captures "best possible" obfuscation;
-* Anything revealed by obfuscated program is somehow intrinsic to any program
-  computing $F$
-
------------
-
-### More formally
-
-* Let $O$ be the obfuscator
-* Let $F$ be a (mathematical) function
-* Let $P_1$ and $P_2$ be any two programs both computing $F$
-* Then $O(P_1) \simeq O(P_2)$
-
-(Note: $\simeq$ denotes computational indistinguishability.)
-
-----------
-
-### Existence?
-
-For some classes of functions, iO exists **unconditionally**.  If a *normal
-form* is efficiently computable, then the obfuscator can just output that!
-
-*Note:* using this idea, we see that if $P = NP$, then in fact iO exists
-unconditionally for polynomial time TMs (computing the lexicographically first
-program with a given behavior is in the polynomial hierarchy, and could be
-used as the normal form).
-
-
-# How to use iO?
-
-## History
-
-* For over a decade, no one knew how to use iO
-* VBB had almost every imaginable cryptographic consequence, yet iO seemed to
-  have none at all
-* A breakthrough came in 2013...
-
-## Punctured programs
-
-* Idea: combine iO with an intractability assumption
-* Construct two programs with (almost) the same functionality, one of which
-  *does not contain some secret* (this is the "punctured" program)
-* Then clearly secret is not leaked by obfuscation!
-* Today, there's scarcely a VBB consequence that is not also shared by iO.
-
-## Back to the bad news
-
-## Can we realize iO?
-
-As mentioned, iO can be shown to exist *unconditionally* in some settings,
-ruling out anything akin to the broad negative results for VBB.  However, we
-as of yet do not have constructions built upon reliable cryptographic
-foundations.  To-date, **every conjectured construction is broken**.
-
-----------
-
-* Nevertheless, we may be able to construct obfuscators for restricted (but
-  useful) classes of functionalities.
-* The search for constructions from plausible assumptions is ongoing.
+1. Gentrification might have a small impact on rent hikes, but rent is going
+   up regardless of the situation
+1. So put your degree to use and get that money
+1. Otherwise, you'll still have to deal with rent hikes
 
 # Questions?
 
 ## References
 
-* [Negative result from 2001](http://link.springer.com/chapter/10.1007/3-540-44647-8_1)
-* [Breakthrough on how to use iO](http://dl.acm.org/citation.cfm?id=2591825)
+* [Census API](http://link.springer.com/chapter/10.1007/3-540-44647-8_1)
+* [HUD](http://dl.acm.org/citation.cfm?id=2591825)
+* [NYC Open Data](https://data.cityofnewyork.us)
