@@ -36,3 +36,4 @@ config.rst
 *.[xX][lL][sS]
 *.[xX][lL][sS][xX]
 *.zip
+*.geojson
