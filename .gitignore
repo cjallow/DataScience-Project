@@ -40,3 +40,4 @@ config.rst
 *.mp4
 *.png
 *.gif
+keys.json
