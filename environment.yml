@@ -7,3 +7,4 @@ dependencies:
   - zipcode==2.0.0
   - geopandas==0.2.1
   - "git+https://github.com/CommerceDataService/census-wrapper.git"
+  - "git+https://github.com/nlhepler/pydot.git"
