@@ -37,3 +37,7 @@ config.rst
 *.[xX][lL][sS][xX]
 *.zip
 *.geojson
+*.mp4
+*.png
+*.gif
+keys.json
