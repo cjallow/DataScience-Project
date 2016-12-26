@@ -8,12 +8,12 @@
 Please use Anaconda if you aren't already for some strange reason.  
 Create a virtual environment like so:  
 ```bash
-conda create --name **_EnvName_** --file requirements.txt
+conda env create -f environment.yml
 ```
 
 Then activate the environment before you get to work:
 ```bash
-source activate **_EnvName_**
+source activate DataScience-Project
 ```
 
 Deactivate when you are done like this:
@@ -51,7 +51,7 @@ happens. It really shouldn't.
 Just pull the latest changes from the repo! If anything goes wrong due to
 dependencies, make sure you get the latest requirements. Like so:  
 ```bash
-conda install --yes --file requirements.txt
+conda env update -f environment.yml
 ```
 
 Do this while your virtual environment is active, of course.
