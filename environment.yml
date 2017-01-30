@@ -1,9 +1,12 @@
 name: DataScience-Project
 dependencies:
-- anaconda=4.1.1=np111py35_0
+- anaconda=4.2.0=np111py35_0
 - plotly=1.12.9=py35_0
 - shapely=1.5.16=py35_0
+- seaborn=0.7.1=py35_0
+- scikit-learn=0.17.1=np111py35_2
 - pip:
   - zipcode==2.0.0
   - geopandas==0.2.1
   - "git+https://github.com/CommerceDataService/census-wrapper.git"
+  - "git+https://github.com/nlhepler/pydot.git"

@@ -8,12 +8,12 @@
 Please use Anaconda if you aren't already for some strange reason.  
 Create a virtual environment like so:  
 ```bash
-conda create --name **_EnvName_** --file requirements.txt
+conda env create -f environment.yml
 ```
 
 Then activate the environment before you get to work:
 ```bash
-source activate **_EnvName_**
+source activate DataScience-Project
 ```
 
 Deactivate when you are done like this:
@@ -51,19 +51,19 @@ happens. It really shouldn't.
 Just pull the latest changes from the repo! If anything goes wrong due to
 dependencies, make sure you get the latest requirements. Like so:  
 ```bash
-conda install --yes --file requirements.txt
+conda env update -f environment.yml
 ```
 
 Do this while your virtual environment is active, of course.
 
 ###Making them
 If you added a dependency to the environment, keep everyone on the bleeding
-edge too! Do this by running:
-```bash
-conda list --export > requirements.txt
-```
+edge too! There exists a nice command, but since we are using a couple of
+packages from github, conda doesn't export these correctly, and we have to
+manually edit environment.yml. Do `conda list` and find only the package that
+you installed. The details on that row need to be added to the file.
 
-Once again, inside of your environment. Just push these changes and everyone
+Then just push these changes and everyone
 else can refer to the "Getting them" section above. :D
 
 ##Misc.
